@@ -6,18 +6,12 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.MeetingModule = void 0;
+exports.MeetingRepository = void 0;
 const common_1 = require("@nestjs/common");
-const meeting_service_1 = require("./meeting.service");
-const meeting_controller_1 = require("./meeting.controller");
-const meeting_repository_1 = require("./meeting.repository");
-let MeetingModule = class MeetingModule {
+let MeetingRepository = class MeetingRepository {
 };
-exports.MeetingModule = MeetingModule;
-exports.MeetingModule = MeetingModule = __decorate([
-    (0, common_1.Module)({
-        controllers: [meeting_controller_1.MeetingController],
-        providers: [meeting_service_1.MeetingService, meeting_repository_1.MeetingRepository],
-    })
-], MeetingModule);
-//# sourceMappingURL=meeting.module.js.map
+exports.MeetingRepository = MeetingRepository;
+exports.MeetingRepository = MeetingRepository = __decorate([
+    (0, common_1.Injectable)()
+], MeetingRepository);
+//# sourceMappingURL=meeting.repository.js.map

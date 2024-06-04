@@ -1,10 +1,8 @@
-import { ProductService } from './product.service';
 import { CreateProductDto } from './dto/create-product.dto';
 import { UpdateProductDto } from './dto/update-product.dto';
-export declare class ProductController {
-    private readonly productService;
-    constructor(productService: ProductService);
-    create(createProductDto: CreateProductDto): {
+export declare class ProductRepository {
+    product: any[];
+    create(data: CreateProductDto): {
         id: any;
         title: string;
         price: number;
@@ -13,8 +11,8 @@ export declare class ProductController {
         description: string;
     };
     findAll(): any[];
-    findOne(id: string): any;
-    update(id: string, updateProductDto: UpdateProductDto): {
+    findOne(id: number): any;
+    update(id: number, data: UpdateProductDto): {
         id: any;
         title: any;
         color: any;
@@ -22,5 +20,5 @@ export declare class ProductController {
         price: any;
         description: any;
     };
-    remove(id: string): any[];
+    delete(id: number): any[];
 }

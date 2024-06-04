@@ -10,13 +10,14 @@ exports.ProductModule = void 0;
 const common_1 = require("@nestjs/common");
 const product_service_1 = require("./product.service");
 const product_controller_1 = require("./product.controller");
+const product_repository_1 = require("./product.repository");
 let ProductModule = class ProductModule {
 };
 exports.ProductModule = ProductModule;
 exports.ProductModule = ProductModule = __decorate([
     (0, common_1.Module)({
         controllers: [product_controller_1.ProductController],
-        providers: [product_service_1.ProductService],
+        providers: [product_service_1.ProductService, product_repository_1.ProductRepository],
     })
 ], ProductModule);
 //# sourceMappingURL=product.module.js.map

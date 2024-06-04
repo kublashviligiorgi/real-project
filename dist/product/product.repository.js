@@ -1,0 +1,63 @@
+"use strict";
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.ProductRepository = void 0;
+const common_1 = require("@nestjs/common");
+let ProductRepository = class ProductRepository {
+    constructor() {
+        this.product = [];
+    }
+    create(data) {
+        const newProduct = {
+            id: (this.product[this.product.length - 1]?.id || 0) + 1,
+            title: data.title,
+            price: data.price,
+            image: data.image,
+            color: data.color,
+            description: data.description
+        };
+        this.product.push(newProduct);
+        console.log(this.product);
+        return newProduct;
+    }
+    findAll() {
+        return this.product;
+    }
+    findOne(id) {
+        for (let i = 0; i < this.product.length; i++) {
+            if (id == this.product[i].id)
+                return {
+                    ...this.product[i],
+                    index: i
+                };
+        }
+        return "არ არსებობს ეგეთი მონაცემი";
+    }
+    update(id, data) {
+        const producti = this.findOne(id);
+        const updatedProduct = {
+            id: producti.id,
+            title: data.title || producti.title,
+            color: data.color || producti.color,
+            image: data.image || producti.image,
+            price: data.price || producti.price,
+            description: data.description || producti.description
+        };
+        this.product[producti.index] = updatedProduct;
+        return updatedProduct;
+    }
+    delete(id) {
+        const producti = this.findOne(id);
+        return this.product.splice(producti.index, 1);
+    }
+};
+exports.ProductRepository = ProductRepository;
+exports.ProductRepository = ProductRepository = __decorate([
+    (0, common_1.Injectable)()
+], ProductRepository);
+//# sourceMappingURL=product.repository.js.map

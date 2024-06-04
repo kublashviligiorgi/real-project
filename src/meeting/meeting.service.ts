@@ -1,9 +1,11 @@
 import { Injectable } from '@nestjs/common';
 import { CreateMeetingDto } from './dto/create-meeting.dto';
 import { UpdateMeetingDto } from './dto/update-meeting.dto';
+import { MeetingRepository } from './meeting.repository';
 
 @Injectable()
 export class MeetingService {
+  constructor(private readonly meetingRepository: MeetingRepository) {}
   create(createMeetingDto: CreateMeetingDto) {
     return 'This action adds a new meeting';
   }
