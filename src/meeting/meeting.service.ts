@@ -7,22 +7,22 @@ import { MeetingRepository } from './meeting.repository';
 export class MeetingService {
   constructor(private readonly meetingRepository: MeetingRepository) {}
   create(createMeetingDto: CreateMeetingDto) {
-    return 'This action adds a new meeting';
+    return this.meetingRepository.create(createMeetingDto);
   }
 
   findAll() {
-    return `This action returns all meeting`;
+    return this.meetingRepository.findAll();
   }
 
   findOne(id: number) {
-    return `This action returns a #${id} meeting`;
+    return this.meetingRepository.findOne(id);
   }
 
   update(id: number, updateMeetingDto: UpdateMeetingDto) {
-    return `This action updates a #${id} meeting`;
+    return this.meetingRepository.update(id, updateMeetingDto)
   }
 
   remove(id: number) {
-    return `This action removes a #${id} meeting`;
+    return this.meetingRepository.delete(id);
   }
 }
